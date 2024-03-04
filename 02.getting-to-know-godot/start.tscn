@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfrp0km2xjcr6"]
+[gd_scene load_steps=10 format=3 uid="uid://dfrp0km2xjcr6"]
 
 [ext_resource type="Script" path="res://game.gd" id="2"]
 [ext_resource type="TileSet" uid="uid://crkgfdw1y80hc" path="res://levels/rooms/tileset_bridges.tres" id="2_vnf5n"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://tours/102_assemble_your_first_game/05_add_chest_that_spawns_pickups/levels/rooms/room_a.tscn" id="5_gs64m"]
 [ext_resource type="PackedScene" uid="uid://dgayuh42w4v6u" path="res://levels/rooms/room_b.tscn" id="6_1dwu1"]
 [ext_resource type="PackedScene" uid="uid://cq0mmphkbrvmm" path="res://levels/rooms/room_c.tscn" id="7_ylca1"]
+[ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="8_tdt0h"]
+[ext_resource type="PackedScene" uid="uid://cce7r30dfjm4r" path="res://interface/bars/ui_health_bar.tscn" id="9_h322k"]
 
 [node name="Start" type="Node2D"]
 script = ExtResource("2")
@@ -35,3 +37,13 @@ position = Vector2(1024, -512)
 
 [node name="RoomC" parent="." instance=ExtResource("7_ylca1")]
 position = Vector2(768, -2432)
+
+[node name="BackgroundBlueSky" parent="." instance=ExtResource("8_tdt0h")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIHealthBar" parent="CanvasLayer" instance=ExtResource("9_h322k")]
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 378.0
+offset_bottom = 132.725
