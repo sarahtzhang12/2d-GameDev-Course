@@ -7,6 +7,7 @@ var steering_factor := 3.0
 var health := 10
 var gem_count := 0
 
+
 func _ready():
 	area_entered.connect(_on_area_entered)
 
@@ -25,7 +26,11 @@ func _process(delta: float) -> void:
 
 	if velocity.length() > 0.0:
 		get_node("Sprite2D").rotation = velocity.angle() 
-
+	
+	var viewport_size := get_viewport_rect().size 
+	position.x = wrapf(position.x, 0 , viewport_size.x)
+	position.y = wrapf(position.y, 0, viewport_size.y)
+	
 func set_health(new_health: int) -> void: 
 	health = new_health 
 	get_node("UI/HealthBar").value = health 
